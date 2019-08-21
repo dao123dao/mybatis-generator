@@ -13,9 +13,9 @@
 
         <!--数据库链接地址账号密码123-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost/springboot"
-                        userId="root"
-                        password="1234"/>
+                        connectionURL="jdbc:mysql://10.42.0.210/dhcs"
+                        userId="ccstest"
+                        password="ccstest12345" />
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -43,9 +43,11 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="t_user" domainObjectName="User">
-            <property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="MYSQL" identity="true"/>
+        <table tableName="d_visitcollection_outsource" domainObjectName="VisitCollectionOutSource">
+            <generatedKey column="ID" sqlStatement="MYSQL" identity="true"/>
+        </table>
+        <table tableName="d_visitcollection_outsource_sysn_log" domainObjectName="VisitCollectionOutSourceSysnLog">
+            <generatedKey column="ID" sqlStatement="MYSQL" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
