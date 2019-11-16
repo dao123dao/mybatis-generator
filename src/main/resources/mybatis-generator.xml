@@ -6,16 +6,20 @@
 <generatorConfiguration>
 
     <context id="MySqlTable" targetRuntime="MyBatis3">
+        <plugin type="com.example.temp.MysqlPaginationPlugin"></plugin>
+
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <!--数据库链接地址账号密码123-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.42.0.210/dhcs"
-                        userId="ccstest"
-                        password="ccstest12345" />
+        <jdbcConnection
+                        driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost/parttime?serverTimezone=UTC"
+                        userId="root"
+                        password="1234" />
+        <!--driverClass="com.mysql.jdbc.Driver"-->
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -43,11 +47,11 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="d_visitcollection_outsource" domainObjectName="VisitCollectionOutSource">
-            <generatedKey column="ID" sqlStatement="MYSQL" identity="true"/>
-        </table>
-        <table tableName="d_visitcollection_outsource_sysn_log" domainObjectName="VisitCollectionOutSourceSysnLog">
-            <generatedKey column="ID" sqlStatement="MYSQL" identity="true"/>
+        <table tableName="t_user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <generatedKey column="user_id" sqlStatement="MYSQL" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
